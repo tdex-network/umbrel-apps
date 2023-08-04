@@ -21,7 +21,7 @@ services:
       OCEAN_UTXO_EXPIRY_DURATION_IN_SECONDS: 240
 
   tdexd:
-    image: ghcr.io/tdex-network/tdexd:v1.0.0@sha256
+    image: docker pull ghcr.io/tdex-network/tdexd:v1.0.0-rc.8@sha256:dab0b9928404c1fe65b1fec272affb53c75a11fe8f6b11a7e5962f3bf8882375
     tty: true
     restart: on-failure
     depends_on:
@@ -42,7 +42,7 @@ services:
       TDEX_CONNECT_PROTO: http
 
   dashboard:
-    image: ghcr.io/tdex-network/dashboard:v1.0.0@sha256
+    image: ghcr.io/tdex-network/dashboard:v1.0.0-rc.0
     restart: on-failure
     environment:
       USE_PROXY: "false"
