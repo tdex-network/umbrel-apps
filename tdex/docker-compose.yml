@@ -46,10 +46,12 @@ services:
   dashboard:
     image: ghcr.io/tdex-network/dashboard:v1.0.0-rc.0
     restart: on-failure
+    ports:
+      - 8080:8080
     environment:
       USE_PROXY: "false"
       IS_PACKAGED: "true"
-      TRADER_HIDDEN_SERVICE:  "${APP_TDEX_DAEMON_HIDDEN_SERVICE}"
+      TRADER_HIDDEN_SERVICE: "${APP_TDEX_DAEMON_HIDDEN_SERVICE}"
 
   caddy:
     image: caddy:2.6.4-alpine@sha256:4dfec6c3b22c36b63ea4a3633c7cdbdaa9926d1324c27db2b0e2b70ef9cd105a
