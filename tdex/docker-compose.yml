@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   oceand:
-    image: docker pull ghcr.io/vulpemventures/oceand:v0.1.17@sha256:9a7e1b8df4d7907ad66e3475c5a5f357d73c49df96214c00eba121f2aea9a50d
+    image: ghcr.io/vulpemventures/oceand:v0.1.17
     tty: true
     restart: on-failure
     stop_grace_period: 1m
@@ -21,7 +21,7 @@ services:
       OCEAN_UTXO_EXPIRY_DURATION_IN_SECONDS: 240
 
   tdexd:
-    image: docker pull ghcr.io/tdex-network/tdexd:v1.0.0-rc.8@sha256:dab0b9928404c1fe65b1fec272affb53c75a11fe8f6b11a7e5962f3bf8882375
+    image: ghcr.io/tdex-network/tdexd:v1.0.0-rc.8
     tty: true
     restart: on-failure
     depends_on:
@@ -29,6 +29,8 @@ services:
     stop_grace_period: 1m
     volumes:
       - ${APP_DATA_DIR}/tdex-data:/home/tdex/.tdex-daemon
+    ports:
+     - ${APP_TDEX_PORT}:${APP_TDEX_PORT}
     environment:
       TDEX_LOG_LEVEL: 5
       TDEX_OPERATOR_LISTENING_PORT: "${APP_TDEX_PORT}"
