@@ -44,7 +44,7 @@ services:
       TDEX_CONNECT_PROTO: http
 
   dashboard:
-    image: ghcr.io/tdex-network/dashboard:v1.0.0-rc.0
+    image: ghcr.io/tdex-network/dashboard:v1.0.0-rc.1
     restart: on-failure
     ports:
       - 8080:8080
