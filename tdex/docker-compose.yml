@@ -21,7 +21,7 @@ services:
       OCEAN_UTXO_EXPIRY_DURATION_IN_SECONDS: 240
 
   tdexd:
-    image: ghcr.io/tdex-network/tdexd:v1.0.0-rc.8
+    image: ghcr.io/tdex-network/tdexd:v1.0.0
     tty: true
     restart: on-failure
     depends_on:
@@ -44,7 +44,7 @@ services:
       TDEX_CONNECT_PROTO: http
 
   dashboard:
-    image: ghcr.io/tdex-network/dashboard:v1.0.0-rc.3
+    image: ghcr.io/tdex-network/dashboard:v1.0.0
     restart: on-failure
     ports:
       - 8080:8080
